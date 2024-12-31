@@ -280,9 +280,10 @@
       function addToCart(name, price) {
     const imageExtensions = ['.jpg', '.jpeg'];
     let imagePath = '';
+    let imageFound = false;
     
     for (let ext of imageExtensions) {
-        const testPath = `../picture/${name}${ext}`;
+        const testPath = `picture/${name}${ext}`;
         imagePath = testPath;
         console.log('Trying image path:', testPath);
     }

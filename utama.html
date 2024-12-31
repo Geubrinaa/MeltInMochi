@@ -88,7 +88,7 @@
         <!-- Mochi Item 1 -->
         <div class="bg-white rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform">
           <img
-            src="./picture/strawberi.jpeg"
+            src="picture/strawberi.jpeg"
             alt="Mochi Strawberry"
             class="w-full h-48 object-cover rounded mb-4"
           />
@@ -105,7 +105,7 @@
         <!-- Mochi Item 2 -->
         <div class="bg-white rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform">
           <img
-            src="./picture/mango.jpeg"
+            src="picture/mango.jpeg"
             alt="Mochi Manggo"
             class="w-full h-48 object-cover rounded mb-4"
           />
@@ -122,7 +122,7 @@
          <!-- Mochi Item 3 -->
          <div class="bg-white rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform">
           <img
-            src="./picture/matchaa.jpeg"
+            src="picture/matchaa.jpeg"
             alt="Mochi Matcha"
             class="w-full h-48 object-cover rounded mb-4"
           />
@@ -139,7 +139,7 @@
          <!-- Mochi Item 4 -->
          <div class="bg-white rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform">
           <img
-            src="./picture/vanila.jpeg"
+            src="picture/vanila.jpeg"
             alt="Mochi Vanilla"
             class="w-full h-48 object-cover rounded mb-4"
           />
@@ -156,7 +156,7 @@
         <!-- Mochi Item 5 -->
         <div class="bg-white rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform">
           <img
-            src="./picture/chocolat.jpeg"
+            src="picture/chocolat.jpeg"
             alt="Mochi coklat"
             class="w-full h-48 object-cover rounded mb-4"
           />
@@ -173,7 +173,7 @@
           <!-- Mochi Item 6 -->
           <div class="bg-white rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform">
             <img
-              src="./picture/blueberry.jpeg"
+              src="picture/blueberry.jpeg"
               alt="Mochi Bluberry"
               class="w-full h-48 object-cover rounded mb-4"
             />
@@ -191,7 +191,7 @@
           <!-- Mochi Item 7 -->
           <div class="bg-white rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform">
             <img
-              src="./picture/cookiesm.jpeg"
+              src="picture/cookiesm.jpeg"
               alt="Mochi Chocolate Chip Cookies"
               class="w-full h-48 object-cover rounded mb-4"
             />
@@ -209,7 +209,7 @@
           <!-- Mochi Item 8 -->
           <div class="bg-white rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform">
             <img
-              src="./picture/matchacook.jpeg"
+              src="picture/matchacook.jpeg"
               alt="MochMatcha Mochi Chocolate Chip Cookies"
               class="w-full h-48 object-cover rounded mb-4"
             />
@@ -227,7 +227,7 @@
           <!-- Mochi Item 9 -->
           <div class="bg-white rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform">
             <img
-              src="./picture/blacksamse.jpeg"
+              src="picture/blacksamse.jpeg"
               alt="Black Sesame Mochi Cookies"
               class="w-full h-48 object-cover rounded mb-4"
             />
@@ -277,92 +277,95 @@
     </div>
     <script>
       let cartItems = [];
-
       function addToCart(name, price) {
-        const imageExtensions = ['.jpg', '.jpeg'];
-        let imagePath = '';
-        
-        for (let ext of imageExtensions) {
-            const testPath = `./picture/${name.toLowerCase()}${ext}`;
-            imagePath = testPath;
-            console.log('Trying image path:', testPath);
-        }
+    const imageExtensions = ['.jpg', '.jpeg'];
+    let imagePath = '';
+    
+    for (let ext of imageExtensions) {
+        const testPath = `picture/${name}${ext}`;
+        imagePath = testPath;
+        console.log('Trying image path:', testPath);
+    }
 
-        cartItems.push({
-            name: name,
-            price: price,
-            quantity: 1,
-            imagePath: imagePath
-        });
-        updateCart();
-      }
+    cartItems.push({
+        name: name,
+        price: price,
+        quantity: 1,
+        imagePath: imagePath
+    });
+    updateCart();
+}
+function removeItem(index) {
+    cartItems.splice(index, 1);
+    updateCart();
+}
 
-      function removeItem(index) {
+function updateCart() {
+    const cartList = document.getElementById("cart-items");
+    const cartItemsInput = document.getElementById("cart-items-input");
+    let subtotal = 0;
+}
+
+function changeQuantity(index, change) {
+    const item = cartItems[index];
+    const newQuantity = item.quantity + change;
+    
+    if (newQuantity > 0) {
+        item.quantity = newQuantity;
+    } else {
         cartItems.splice(index, 1);
-        updateCart();
-      }
-
-      function changeQuantity(index, change) {
-        const item = cartItems[index];
-        const newQuantity = item.quantity + change;
-        
-        if (newQuantity > 0) {
-            item.quantity = newQuantity;
-        } else {
-            cartItems.splice(index, 1);
-        }
-        updateCart();
-      }
-
+    }
+    updateCart();
+}
       function updateCart() {
-        const cartItemsContainer = document.getElementById("cart-items");
-        const cartMessage = document.getElementById("cart-message");
-        const summarySection = document.getElementById("summary-section");
-        const cartItemsInput = document.getElementById("cartItemsInput");
+    const cartItemsContainer = document.getElementById("cart-items");
+    const cartMessage = document.getElementById("cart-message");
+    const summarySection = document.getElementById("summary-section");
+    const cartItemsInput = document.getElementById("cartItemsInput");
 
-        if (cartItems.length === 0) {
-            cartMessage.classList.remove("hidden");
-            cartItemsContainer.classList.add("hidden");
-            summarySection.classList.add("hidden");
-            cartItemsInput.value = ""; // Kosongkan input jika keranjang kosong
-        } else {
-            cartMessage.classList.add("hidden");
-            cartItemsContainer.classList.remove("hidden");
-            summarySection.classList.remove("hidden");
+    if (cartItems.length === 0) {
+        cartMessage.classList.remove("hidden");
+        cartItemsContainer.classList.add("hidden");
+        summarySection.classList.add("hidden");
+        cartItemsInput.value = ""; // Kosongkan input jika keranjang kosong
+    } else {
+        cartMessage.classList.add("hidden");
+        cartItemsContainer.classList.remove("hidden");
+        summarySection.classList.remove("hidden");
 
-            cartItemsContainer.innerHTML = "";
-            let subtotal = 0;
+        cartItemsContainer.innerHTML = "";
+        let subtotal = 0;
 
-            cartItems.forEach((item, index) => {
-                subtotal += item.price * item.quantity;
-                cartItemsContainer.innerHTML += `
-                    <div class="flex items-center justify-between border-b pb-4">
-                        <div class="flex items-center space-x-4">
-                            <img src="${item.imagePath}" alt="${item.name}" class="w-24 h-24 object-cover rounded" />
-                            <div>
-                                <h3 class="text-xl font-semibold">Mochi ${item.name}</h3>
-                                <p class="text-gray-600">Rp ${item.price}</p>
-                                <div class="flex items-center space-x-2 mt-2">
-                                    <button onclick="changeQuantity(${index}, -1)" class="bg-pink-500 text-white px-2 py-1 rounded">-</button>
-                                    <span class="mx-2">${item.quantity}</span>
-                                    <button onclick="changeQuantity(${index}, 1)" class="bg-pink-500 text-white px-2 py-1 rounded">+</button>
-                                </div>
+        cartItems.forEach((item, index) => {
+            subtotal += item.price * item.quantity;
+            cartItemsContainer.innerHTML += `
+                <div class="flex items-center justify-between border-b pb-4">
+                    <div class="flex items-center space-x-4">
+                        <img src="../picture/${item.name}.jpeg" alt="${item.name}" class="w-24 h-24 object-cover rounded" />
+                        <div>
+                            <h3 class="text-xl font-semibold">Mochi ${item.name}</h3>
+                            <p class="text-gray-600">Rp ${item.price}</p>
+                            <div class="flex items-center space-x-2 mt-2">
+                                <button onclick="changeQuantity(${index}, -1)" class="bg-pink-500 text-white px-2 py-1 rounded">-</button>
+                                <span class="mx-2">${item.quantity}</span>
+                                <button onclick="changeQuantity(${index}, 1)" class="bg-pink-500 text-white px-2 py-1 rounded">+</button>
                             </div>
                         </div>
-                        <button onclick="removeItem(${index})" class="text-red-500 hover:text-red-700">
-                            <i class="fas fa-trash"></i>
-                        </button>
                     </div>
-                `;
-            });
+                    <button onclick="removeItem(${index})" class="text-red-500 hover:text-red-700">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            `;
+        });
 
-            document.getElementById("subtotal").textContent = `Rp ${subtotal}`;
-            document.getElementById("total").textContent = `Rp ${subtotal}`;
+        document.getElementById("subtotal").textContent = `Rp ${subtotal}`;
+        document.getElementById("total").textContent = `Rp ${subtotal}`;
 
-            // Menyimpan data keranjang ke input tersembunyi
-            cartItemsInput.value = JSON.stringify(cartItems);
-        }
-      }
+        // Menyimpan data keranjang ke input tersembunyi
+        cartItemsInput.value = JSON.stringify(cartItems);
+    }
+}
     </script>
     <footer class="bg-gray-800 text-white py-4 mt-8">
       <div class="container mx-auto text-center">

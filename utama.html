@@ -88,7 +88,7 @@
         <!-- Mochi Item 1 -->
         <div class="bg-white rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform">
           <img
-            src="/picture/strawberi.jpeg"
+            src="picture/strawberi.jpeg"
             alt="Mochi Strawberry"
             class="w-full h-48 object-cover rounded mb-4"
           />
@@ -105,7 +105,7 @@
         <!-- Mochi Item 2 -->
         <div class="bg-white rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform">
           <img
-            src="/picture/mango.jpeg"
+            src="picture/mango.jpeg"
             alt="Mochi Manggo"
             class="w-full h-48 object-cover rounded mb-4"
           />
@@ -122,7 +122,7 @@
          <!-- Mochi Item 3 -->
          <div class="bg-white rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform">
           <img
-            src="/picture/matchaaa.jpeg"
+            src="picture/matchaaa.jpeg"
             alt="Mochi Matcha"
             class="w-full h-48 object-cover rounded mb-4"
           />
@@ -139,7 +139,7 @@
          <!-- Mochi Item 4 -->
          <div class="bg-white rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform">
           <img
-            src="/picture/vanila.jpeg"
+            src="picture/vanila.jpeg"
             alt="Mochi Vanilla"
             class="w-full h-48 object-cover rounded mb-4"
           />
@@ -156,7 +156,7 @@
         <!-- Mochi Item 5 -->
         <div class="bg-white rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform">
           <img
-            src="/picture/chocolat.jpeg"
+            src="picture/chocolat.jpeg"
             alt="Mochi coklat"
             class="w-full h-48 object-cover rounded mb-4"
           />
@@ -173,7 +173,7 @@
           <!-- Mochi Item 6 -->
           <div class="bg-white rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform">
             <img
-              src="/picture/blueberry.jpeg"
+              src="picture/blueberry.jpeg"
               alt="Mochi Bluberry"
               class="w-full h-48 object-cover rounded mb-4"
             />
@@ -191,7 +191,7 @@
           <!-- Mochi Item 7 -->
           <div class="bg-white rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform">
             <img
-              src="/picture/cookiesm.jpeg"
+              src="picture/cookiesm.jpeg"
               alt="Mochi Chocolate Chip Cookies"
               class="w-full h-48 object-cover rounded mb-4"
             />
@@ -209,7 +209,7 @@
           <!-- Mochi Item 8 -->
           <div class="bg-white rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform">
             <img
-              src="/picture/matchacook.jpeg"
+              src="picture/matchacook.jpeg"
               alt="MochMatcha Mochi Chocolate Chip Cookies"
               class="w-full h-48 object-cover rounded mb-4"
             />
@@ -227,7 +227,7 @@
           <!-- Mochi Item 9 -->
           <div class="bg-white rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform">
             <img
-              src="/picture/blacksamse.jpeg"
+              src="picture/blacksamse.jpeg"
               alt="Black Sesame Mochi Cookies"
               class="w-full h-48 object-cover rounded mb-4"
             />
@@ -278,11 +278,11 @@
     <script>
      let cartItems = [];
       function addToCart(name, price) {
-    const imageExtensions = ['.jpg', '.jpeg', '.png'];
+    const imageExtensions = ['.jpg', '.jpeg'];
     let imagePath = '';
     
     for (let ext of imageExtensions) {
-        const testPath = `/picture/${name}${ext}`;
+        const testPath = `picture/${name}${ext}`;
         imagePath = testPath;
         console.log('Trying image path:', testPath);
     }
@@ -339,7 +339,7 @@
             cartItemsContainer.innerHTML += `
               <div class="flex items-center justify-between border-b pb-4">
                 <div class="flex items-center space-x-4">
-                  <img src="/picture/${item.name.toLowerCase()}.jpeg" alt="${item.name}" class="w-24 h-24 object-cover rounded" />
+                  <img src="picture/${item.name.toLowerCase()}.jpeg" alt="${item.name}" class="w-24 h-24 object-cover rounded" />
                   <div>
                     <h3 class="text-xl font-semibold">Mochi ${item.name}</h3>
                     <p class="text-gray-600">Rp ${item.price}</p>

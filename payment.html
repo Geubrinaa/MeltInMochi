@@ -41,7 +41,7 @@
       </div>
     </div>
     <div id="loading-spinner" class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center">
-      <div class="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-32 w-32"></div>
+      <div class="border-4 border-gray-200 rounded-full w-12 h-12 border-t-pink-500 animate-spin"></div>
     </div>
     <div id="notification" class="hidden fixed top-0 left-1/2 transform -translate-x-1/2 mt-4 bg-pink-500 text-white py-2 px-4 rounded-md shadow-lg">Pembayaran berhasil!</div>
     <script>
@@ -68,19 +68,5 @@
         document.getElementById("payment-form").reset();
       });
     </script>
-    <style>
-      .loader {
-        border-top-color: #db3466;
-        animation: spin 1s linear infinite;
-      }
-      @keyframes spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-    </style>
   </body>
 </html>

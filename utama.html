@@ -17,7 +17,7 @@
     >
     <div class="flex justify-between items-center">
         <div class="flex items-center space-x-4">
-          <img src="picture/logoo.png" alt="Logo" class="h-20 w-25" />
+          <img src="/picture/logoo.png" alt="Logo" class="h-20 w-25" />
         </div>
   
         <div class="flex space-x-6">
@@ -335,26 +335,26 @@
   
           cartItems.forEach((item, index) => {
             subtotal += item.price * item.quantity;
-            // Fix the image path to match your project structure
             cartItemsContainer.innerHTML += `
               <div class="flex items-center justify-between border-b pb-4">
-                <div class="flex items-center space-x-4">
-                  <img src="picture/${item.name.toLowerCase()}.jpeg" alt="${item.name}" class="w-24 h-24 object-cover rounded" />
-                  <div>
-                    <h3 class="text-xl font-semibold">Mochi ${item.name}</h3>
-                    <p class="text-gray-600">Rp ${item.price}</p>
-                    <div class="flex items-center space-x-2 mt-2">
+        <div class="flex items-center space-x-4">
+            <div class="flex items-center justify-center w-24 h-24 bg-gray-200 rounded">
+                <i class="fas fa-box-open text-pink-500 text-3xl"></i>
+            </div>
+            <div>
+            <h3 class="text-xl font-semibold">Mochi ${item.name}</h3>
+            <p class="text-gray-600">Rp ${item.price}</p>
+             <div class="flex items-center space-x-2 mt-2">
                       <button onclick="changeQuantity(${index}, -1)" class="bg-pink-500 text-white px-2 py-1 rounded">-</button>
                       <span class="mx-2">${item.quantity}</span>
                       <button onclick="changeQuantity(${index}, 1)" class="bg-pink-500 text-white px-2 py-1 rounded">+</button>
                     </div>
-                  </div>
-                </div>
-                <button onclick="removeItem(${index})" class="text-red-500 hover:text-red-700">
-                  <i class="fas fa-trash"></i>
-                </button>
-              </div>
-            `;
+                    </div>
+             </div>
+               <button onclick="removeItem(${index})" class="text-red-500 hover:text-red-700">
+            <i class="fas fa-trash"></i>
+              </button>
+            </div>`;
           });
   
           document.getElementById("subtotal").textContent = `Rp ${subtotal}`;
